@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: pargasys-gateway
+  #cloud:
+  #  gateway:
+  #    routes:
+  #      - id: pargasys-backend
+  #        uri: http://localhost:8081/
+  #        predicates:
+  #          - Path=/trackings/**
+  profiles:
+    active: eur
+  sleuth:
+    async:
+      enabled: true
+  zipkin:
+    base-url: http://localhost:9411
+server:
+  port: 9095
+pargasys:
+  auth:
+    validate: http://pargasys-auth/auth/v1/validate?token=
+

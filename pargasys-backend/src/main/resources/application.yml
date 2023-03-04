@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: pargasys-backend
+  profiles:
+    active: dev
+  config:
+    import: optional:configserver:http://localhost:8888
+  sleuth:
+    async:
+      enabled: true
+  zipkin:
+    base-url: http://localhost:9411
+#  cloud:
+#    stream:
+#      function:
+#        definition:
+#          producer;processor;consumer
+#      bindings:
+#        producer-out-0:
+#          destination: numbers
+#        processor-in-0:
+#          destination: numbers
+#        processor-out-0:
+#          destination: squares
+#        consumer-in-0:
+#         destination: squares
+server:
+  port: 8083
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
